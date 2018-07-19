@@ -1,0 +1,22 @@
+<div *ngIf="auth.isAuthenticated()" class="bs-docs-section">
+  <div class="row">
+    You are logged in!
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3" *ngFor="let course of courses">
+      <div class="card border-primary mb-3">
+        <div class="card-header">{{course.title}}</div>
+        <div class="card-body">
+          <p class="card-text">{{course.description}}</p>
+          <a [href]="course.link" class="card-link">Link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<h4 *ngIf="!auth.isAuthenticated()">
+  You are not logged in! Please <a (click)="auth.login()">Log In</a> to continue.
+</h4>
